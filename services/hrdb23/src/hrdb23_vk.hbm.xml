@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="com.wavemakervcs1.testsampledb738.hrdb23">
-    <class entity-name="com.wavemakervcs1.testsampledb738.hrdb23.Customer" table="CUSTOMER" schema="PUBLIC">
+    <class entity-name="com.wavemakervcs1.testsampledb738.hrdb23.Customer" table="CUSTOMER" name="com.wavemakervcs1.testsampledb738.hrdb23.Customer" schema="PUBLIC">
         <id name="custId" type="integer">
             <column name="CUST_ID" length="4" not-null="true" precision="19" default="'0'"/>
             <generator class="identity"/>
@@ -19,7 +19,23 @@
             <column name="SALARY" length="5" not-null="true" precision="19" default="'0'"/>
         </property>
     </class>
-    <class entity-name="com.wavemakervcs1.testsampledb738.hrdb23.Orders" table="ORDERS" schema="PUBLIC">
+    <class entity-name="com.wavemakervcs1.testsampledb738.hrdb23.EVcustomerorderdetails" table="E_VCUSTOMERORDERDETAILS" name="com.wavemakervcs1.testsampledb738.hrdb23.EVcustomerorderdetails" schema="PUBLIC">
+        <composite-id name="id" class="EVcustomerorderdetailsId">
+            <key-property name="orderId" type="integer">
+                <column name="ORDER_ID" length="255" not-null="false" precision="19"/>
+            </key-property>
+            <key-property name="custName" type="string">
+                <column name="CUST_NAME" length="30" not-null="false" precision="19"/>
+            </key-property>
+            <key-property name="amount" type="integer">
+                <column name="AMOUNT" length="255" not-null="false" precision="19"/>
+            </key-property>
+            <key-property name="date" type="date">
+                <column name="DATE" length="10" not-null="false" precision="19"/>
+            </key-property>
+        </composite-id>
+    </class>
+    <class entity-name="com.wavemakervcs1.testsampledb738.hrdb23.Orders" table="ORDERS" name="com.wavemakervcs1.testsampledb738.hrdb23.Orders" schema="PUBLIC">
         <id name="orderId" type="integer">
             <column name="ORDER_ID" length="4" not-null="true" precision="19" default="'0'"/>
             <generator class="identity"/>

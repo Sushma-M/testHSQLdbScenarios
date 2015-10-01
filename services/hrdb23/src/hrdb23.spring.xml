@@ -1,6 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<beans xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd" xmlns="http://www.springframework.org/schema/beans" xmlns:security="http://www.springframework.org/schema/security" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <context:component-scan base-package="com.wavemakervcs1.testsampledb738.hrdb23.controller,com.wavemakervcs1.testsampledb738.hrdb23.service,com.wavemakervcs1.testsampledb738.hrdb23.dao" xmlns:context="http://www.springframework.org/schema/context"/>
+<?xml version="1.0" encoding="utf-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:p="http://www.springframework.org/schema/p" xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:context="http://www.springframework.org/schema/context" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <context:component-scan base-package="com.wavemakervcs1.testsampledb738.hrdb23.controller,com.wavemakervcs1.testsampledb738.hrdb23.service,com.wavemakervcs1.testsampledb738.hrdb23.dao"/>
     <bean class="com.wavemaker.runtime.data.spring.WMPropertyPlaceholderConfigurer">
         <property name="locations">
             <list>
@@ -11,8 +12,24 @@
         </property>
         <property name="ignoreUnresolvablePlaceholders" value="true"/>
     </bean>
-    <bean class="com.mchange.v2.c3p0.ComboPooledDataSource" depends-on="systemPropertyInitializer" destroy-method="close" id="hrdb23DataSource" p:unreturnedConnectionTimeout="300" p:password="${hrdb23.password}" p:contextClassLoaderSource="library" p:maxIdleTime="600" p:privilegeSpawnedThreads="true" p:debugUnreturnedConnectionStackTraces="true" p:acquireRetryAttempts="3" p:acquireRetryDelay="1000" p:jdbcUrl="${hrdb23.url}" p:user="${hrdb23.username}" p:driverClass="${hrdb23.driverClass}" p:idleConnectionTestPeriod="300" p:maxPoolSize="4" p:minPoolSize="2" xmlns:p="http://www.springframework.org/schema/p"/>
-    <bean class="com.wavemaker.runtime.data.factory.TypeResolverSessionFactoryBean" id="hrdb23SessionFactory">
+   <bean id="hrdb23DataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close" depends-on="systemPropertyInitializer"
+                      p:driverClass="${hrdb23.driverClass}"
+                      p:jdbcUrl="${hrdb23.url}"
+                      p:user="${hrdb23.username}"
+                      p:password="${hrdb23.password}"
+                      p:maxPoolSize="4"
+                      p:minPoolSize="2"
+                      p:maxIdleTime="600"
+                      p:idleConnectionTestPeriod="300"
+                      p:unreturnedConnectionTimeout="300"
+                      p:debugUnreturnedConnectionStackTraces="true"
+                      p:acquireRetryAttempts="3"
+                      p:acquireRetryDelay="1000"
+                      p:contextClassLoaderSource="library"
+                      p:privilegeSpawnedThreads="true"
+                      />
+    
+    <bean id="hrdb23SessionFactory" class="com.wavemaker.runtime.data.factory.TypeResolverSessionFactoryBean">
         <property name="dataSource" ref="hrdb23DataSource"/>
         <property name="packagesToScan" value="com.wavemakervcs1.testsampledb738.hrdb23"/>
         <property name="mappingResources">
@@ -35,30 +52,31 @@
                 <prop key="hibernate.show_sql">
                     false
                 </prop>
+                <prop key="hibernate.globally_quoted_identifiers">
+                    false
+                </prop>
                 <prop key="hibernate.hbm2ddl.auto">
                     ${hrdb23.hbm2ddl}
-                </prop>
-                <prop key="hibernate.globally_quoted_identifiers">
-                false
                 </prop>
             </props>
         </property>
     </bean>
-    <bean class="org.springframework.orm.hibernate4.HibernateTransactionManager" id="hrdb23TransactionManager">
+    <bean id="hrdb23TransactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
         <property name="sessionFactory" ref="hrdb23SessionFactory"/>
     </bean>
-    <bean class="org.springframework.orm.hibernate4.HibernateTemplate" id="hrdb23Template">
+    <bean id="hrdb23Template" class="org.springframework.orm.hibernate4.HibernateTemplate">
         <property name="sessionFactory" ref="hrdb23SessionFactory"/>
     </bean>
-    <bean class="com.wavemaker.runtime.data.dao.query.WMQueryExecutorImpl" id="hrdb23WMQueryExecutor">
+    <bean id="hrdb23WMQueryExecutor" class="com.wavemaker.runtime.data.dao.query.WMQueryExecutorImpl">
         <property name="template" ref="hrdb23Template"/>
     </bean>
-    <bean class="com.wavemaker.runtime.data.dao.procedure.WMProcedureExecutorImpl" id="hrdb23WMProcedureExecutor">
+    <bean id="hrdb23WMProcedureExecutor" class="com.wavemaker.runtime.data.dao.procedure.WMProcedureExecutorImpl">
         <property name="template" ref="hrdb23Template"/>
-        <property name="serviceId" value="hrdb23"/>
+        <property name="serviceId" value="hrdb23" />
     </bean>
-    <bean class="com.wavemaker.studio.common.data.type.WMPersistentLocalDateTime" id="persistentLocalDateTimeType"/>
-    <bean class="com.wavemaker.runtime.data.CustomType" id="dateTimeCustomType">
+
+    <bean id="persistentLocalDateTimeType" class="com.wavemaker.studio.common.data.type.WMPersistentLocalDateTime"/>
+    <bean id="dateTimeCustomType" class="com.wavemaker.runtime.data.CustomType">
         <property name="type" ref="persistentLocalDateTimeType"/>
         <property name="keys">
             <list>
@@ -67,5 +85,8 @@
             </list>
         </property>
     </bean>
-    <tx:annotation-driven xmlns:tx="http://www.springframework.org/schema/tx"/>
+
+    <tx:annotation-driven/>
+
 </beans>
+
