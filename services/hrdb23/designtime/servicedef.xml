@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service xmlns="http://www.activegrid.com/namespaces/ServiceDefinitions/1.0" id="hrdb23" CRUDService="true" type="DataService" springFile="hrdb23.spring.xml">
+    <operation operationType="nativequery" name="FullOuterJoinQuery">
+        <return typeRef="hrdb23FullOuterJoinQueryrtnType" isList="false"/>
+    </operation>
+    <operation operationType="nativequery" name="InnerJoinQuery">
+        <return typeRef="hrdb23InnerJoinQueryrtnType" isList="false"/>
+    </operation>
+    <operation operationType="nativequery" name="InsertQuery">
+        <return typeRef="hrdb23InsertQueryrtnType" isList="false"/>
+    </operation>
+    <operation operationType="nativequery" name="LeftOuterJoinQuery">
+        <return typeRef="hrdb23LeftOuterJoinQueryrtnType" isList="false"/>
+    </operation>
+    <operation operationType="nativequery" name="RightOuterJoinquery">
+        <return typeRef="hrdb23RightOuterJoinqueryrtnType" isList="false"/>
+    </operation>
+    <operation operationType="nativequery" name="getViewData">
+        <return typeRef="hrdb23getViewDatartnType" isList="false"/>
+    </operation>
+    <dataobjects>
+        <dataobject javaType="com.wavemakervcs1.testsampledb738.hrdb23.Customer">
+            <element name="custId" typeRef="java.lang.Integer" isList="false" allowNull="false"/>
+            <element name="custName" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="age" typeRef="java.lang.Integer" isList="false" allowNull="false"/>
+            <element name="address" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="salary" typeRef="java.lang.Integer" isList="false" allowNull="false"/>
+        </dataobject>
+        <dataobject javaType="com.wavemakervcs1.testsampledb738.hrdb23.EVcustomerorderdetails">
+            <element name="id" typeRef="com.wavemakervcs1.testsampledb738.hrdb23.EVcustomerorderdetailsId" isList="false" allowNull="false"/>
+        </dataobject>
+        <dataobject javaType="com.wavemakervcs1.testsampledb738.hrdb23.EVcustomerorderdetailsId">
+            <element name="orderId" typeRef="java.lang.Integer" isList="false" allowNull="true"/>
+            <element name="custName" typeRef="java.lang.String" isList="false" allowNull="true"/>
+            <element name="amount" typeRef="java.lang.Integer" isList="false" allowNull="true"/>
+            <element name="date" typeRef="java.util.Date" isList="false" allowNull="true"/>
+        </dataobject>
+        <dataobject javaType="com.wavemakervcs1.testsampledb738.hrdb23.Orders">
+            <element name="orderId" typeRef="java.lang.Integer" isList="false" allowNull="false"/>
+            <element name="customerId" typeRef="java.lang.Integer" isList="false" allowNull="true"/>
+            <element name="date" typeRef="java.util.Date" isList="false" allowNull="false"/>
+            <element name="amount" typeRef="java.lang.Integer" isList="false" allowNull="true"/>
+        </dataobject>
+        <dataobject javaType="hrdb23FullOuterJoinQueryrtnType">
+            <element name="CUST_NAME" typeRef="java.lang.String"/>
+            <element name="SALARY" typeRef="java.lang.Integer"/>
+            <element name="ORDER_ID" typeRef="java.lang.String"/>
+            <element name="AGE" typeRef="java.lang.Integer"/>
+            <element name="CUST_ID" typeRef="java.lang.Integer"/>
+            <element name="ADDRESS" typeRef="java.lang.String"/>
+            <element name="DATE" typeRef="java.lang.String"/>
+            <element name="CUSTOMER_ID" typeRef="java.lang.String"/>
+            <element name="AMOUNT" typeRef="java.lang.String"/>
+        </dataobject>
+        <dataobject javaType="hrdb23InnerJoinQueryrtnType">
+            <element name="CUST_NAME" typeRef="java.lang.String"/>
+            <element name="SALARY" typeRef="java.lang.Integer"/>
+            <element name="ORDER_ID" typeRef="java.lang.Integer"/>
+            <element name="AGE" typeRef="java.lang.Integer"/>
+            <element name="CUST_ID" typeRef="java.lang.Integer"/>
+            <element name="ADDRESS" typeRef="java.lang.String"/>
+            <element name="DATE" typeRef="java.sql.Date"/>
+            <element name="CUSTOMER_ID" typeRef="java.lang.Integer"/>
+            <element name="AMOUNT" typeRef="java.lang.Integer"/>
+        </dataobject>
+        <dataobject javaType="hrdb23InsertQueryrtnType"/>
+        <dataobject javaType="hrdb23LeftOuterJoinQueryrtnType">
+            <element name="CUST_NAME" typeRef="java.lang.String"/>
+            <element name="SALARY" typeRef="java.lang.Integer"/>
+            <element name="ORDER_ID" typeRef="java.lang.String"/>
+            <element name="AGE" typeRef="java.lang.Integer"/>
+            <element name="CUST_ID" typeRef="java.lang.Integer"/>
+            <element name="ADDRESS" typeRef="java.lang.String"/>
+            <element name="DATE" typeRef="java.lang.String"/>
+            <element name="CUSTOMER_ID" typeRef="java.lang.String"/>
+            <element name="AMOUNT" typeRef="java.lang.String"/>
+        </dataobject>
+        <dataobject javaType="hrdb23RightOuterJoinqueryrtnType">
+            <element name="CUST_NAME" typeRef="java.lang.String"/>
+            <element name="SALARY" typeRef="java.lang.String"/>
+            <element name="ORDER_ID" typeRef="java.lang.Integer"/>
+            <element name="AGE" typeRef="java.lang.String"/>
+            <element name="CUST_ID" typeRef="java.lang.String"/>
+            <element name="ADDRESS" typeRef="java.lang.String"/>
+            <element name="DATE" typeRef="java.sql.Date"/>
+            <element name="CUSTOMER_ID" typeRef="java.lang.Integer"/>
+            <element name="AMOUNT" typeRef="java.lang.Integer"/>
+        </dataobject>
+        <dataobject javaType="hrdb23getViewDatartnType">
+            <element name="CUST_NAME" typeRef="java.lang.String"/>
+            <element name="ORDER_ID" typeRef="java.lang.Integer"/>
+            <element name="DATE" typeRef="java.sql.Date"/>
+            <element name="AMOUNT" typeRef="java.lang.Integer"/>
+        </dataobject>
+    </dataobjects>
+</service>

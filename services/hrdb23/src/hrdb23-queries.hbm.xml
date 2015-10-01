@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <sql-query name="InnerJoinQuery">
+        <![CDATA[
+            SELECT * FROM customer INNER JOIN orders ON customer.Cust_ID=orders.Customer_ID ORDER BY customer.Cust_ID
+        ]]>
+    </sql-query>
+    <sql-query name="LeftOuterJoinQuery">
+        <![CDATA[
+            SELECT * FROM customer LEFT OUTER JOIN orders ON customer.Cust_ID = orders.Customer_ID ORDER BY customer.Cust_ID
+        ]]>
+    </sql-query>
+    <sql-query name="RightOuterJoinquery">
+        <![CDATA[
+            SELECT * FROM customer right OUTER JOIN orders ON customer.Cust_ID=orders.Customer_ID ORDER BY customer.Cust_ID
+        ]]>
+    </sql-query>
+    <sql-query name="FullOuterJoinQuery">
+        <![CDATA[
+            SELECT * FROM customer LEFT OUTER JOIN orders ON customer.Cust_ID=orders.Customer_ID
+            Union all
+            SELECT * FROM customer right OUTER JOIN orders ON customer.Cust_ID=orders.Customer_ID
+        ]]>
+    </sql-query>
+    <sql-query name="InsertQuery">
+        <![CDATA[
+            INSERT INTO ORDERS VALUES(5, 19, '2013-02-28', 102000)
+        ]]>
+    </sql-query>
+    <sql-query name="getViewData">
+        <![CDATA[
+            select * from E_vCustomerOrderDetails
+        ]]>
+    </sql-query>
+</hibernate-mapping>

@@ -1,0 +1,666 @@
+{
+	"goToPage-Main": {
+		"name": "goToPage-Main",
+		"owner": "App",
+		"operation": "gotoPage",
+		"pageName": "Main",
+		"dataBinding": {},
+		"category": "wm.NavigationVariable",
+		"_id": "wm-goToPage-Main-wm.NavigationVariable1389180517517"
+	},
+	"supportedLocale": {
+		"name": "supportedLocale",
+		"type": "string",
+		"isList": false,
+		"owner": "App",
+		"dataSet": {
+			"en": "English"
+		},
+		"dataBinding": [
+			{
+				"name": "dataSet",
+				"type": "object",
+				"fields": [
+					{
+						"name": "dataValue",
+						"type": "string"
+					}
+				]
+			}
+		],
+		"saveInPhonegap": false,
+		"category": "wm.Variable",
+		"_id": "wm-supportedLocale-wm.Variable1402640443182"
+	},
+	"Hrdb23CustomerData": {
+		"name": "Hrdb23CustomerData",
+		"type": "Customer",
+		"isList": true,
+		"owner": "App",
+		"dataSet": {
+			"dataValue": ""
+		},
+		"dataBinding": [
+			{
+				"name": "dataBinding",
+				"type": "object",
+				"fields": []
+			}
+		],
+		"saveInPhonegap": false,
+		"firstRow": 0,
+		"maxResults": 20,
+		"designMaxResults": 10,
+		"operation": "read",
+		"startUpdate": true,
+		"autoUpdate": true,
+		"inFlightBehavior": "executeLast",
+		"transformationRequired": false,
+		"liveSource": "hrdb23",
+		"ignoreCase": false,
+		"matchMode": "start",
+		"category": "wm.LiveVariable",
+		"isDefault": true,
+		"dbSystem": "HSQLDB",
+		"_id": "wm-Hrdb23CustomerData-wm.LiveVariable-1439356685753",
+		"package": "com.wavemakervcs1.testsampledb738.hrdb23.Customer",
+		"tableName": "CUSTOMER",
+		"tableType": "TABLE",
+		"propertiesMap": {
+			"columns": [
+				{
+					"fieldName": "custId",
+					"type": "integer",
+					"hibernateType": "integer",
+					"fullyQualifiedType": "integer",
+					"columnName": "CUST_ID",
+					"isPrimaryKey": true,
+					"notNull": true,
+					"length": 4,
+					"precision": 19,
+					"generator": "identity",
+					"isRelated": false,
+					"defaultValue": "0"
+				},
+				{
+					"fieldName": "custName",
+					"type": "string",
+					"hibernateType": "string",
+					"fullyQualifiedType": "string",
+					"columnName": "CUST_NAME",
+					"isPrimaryKey": false,
+					"notNull": true,
+					"length": 30,
+					"precision": 19,
+					"generator": null,
+					"isRelated": false,
+					"defaultValue": null
+				},
+				{
+					"fieldName": "age",
+					"type": "integer",
+					"hibernateType": "integer",
+					"fullyQualifiedType": "integer",
+					"columnName": "AGE",
+					"isPrimaryKey": false,
+					"notNull": true,
+					"length": 3,
+					"precision": 19,
+					"generator": null,
+					"isRelated": false,
+					"defaultValue": "0"
+				},
+				{
+					"fieldName": "address",
+					"type": "string",
+					"hibernateType": "string",
+					"fullyQualifiedType": "string",
+					"columnName": "ADDRESS",
+					"isPrimaryKey": false,
+					"notNull": true,
+					"length": 30,
+					"precision": 19,
+					"generator": null,
+					"isRelated": false,
+					"defaultValue": null
+				},
+				{
+					"fieldName": "salary",
+					"type": "integer",
+					"hibernateType": "integer",
+					"fullyQualifiedType": "integer",
+					"columnName": "SALARY",
+					"isPrimaryKey": false,
+					"notNull": true,
+					"length": 5,
+					"precision": 19,
+					"generator": null,
+					"isRelated": false,
+					"defaultValue": "0"
+				}
+			],
+			"primaryKeys": [
+				"custId"
+			],
+			"entityName": "Customer",
+			"fullyQualifiedName": "com.wavemakervcs1.testsampledb738.hrdb23.Customer",
+			"tableType": "TABLE"
+		},
+		"bindCount": 2
+	},
+	"Hrdb23OrdersData": {
+		"name": "Hrdb23OrdersData",
+		"type": "Orders",
+		"isList": true,
+		"owner": "App",
+		"dataSet": {
+			"dataValue": ""
+		},
+		"dataBinding": [
+			{
+				"name": "dataBinding",
+				"type": "object",
+				"fields": []
+			}
+		],
+		"saveInPhonegap": false,
+		"firstRow": 0,
+		"maxResults": 20,
+		"designMaxResults": 10,
+		"operation": "read",
+		"startUpdate": true,
+		"autoUpdate": true,
+		"inFlightBehavior": "executeLast",
+		"transformationRequired": false,
+		"liveSource": "hrdb23",
+		"ignoreCase": false,
+		"matchMode": "start",
+		"category": "wm.LiveVariable",
+		"isDefault": true,
+		"dbSystem": "HSQLDB",
+		"_id": "wm-Hrdb23OrdersData-wm.LiveVariable-1439356685756",
+		"package": "com.wavemakervcs1.testsampledb738.hrdb23.Orders",
+		"tableName": "ORDERS",
+		"tableType": "TABLE",
+		"propertiesMap": {
+			"columns": [
+				{
+					"fieldName": "orderId",
+					"type": "integer",
+					"hibernateType": "integer",
+					"fullyQualifiedType": "integer",
+					"columnName": "ORDER_ID",
+					"isPrimaryKey": true,
+					"notNull": true,
+					"length": 4,
+					"precision": 19,
+					"generator": "identity",
+					"isRelated": false,
+					"defaultValue": "0"
+				},
+				{
+					"fieldName": "customerId",
+					"type": "integer",
+					"hibernateType": "integer",
+					"fullyQualifiedType": "integer",
+					"columnName": "CUSTOMER_ID",
+					"isPrimaryKey": false,
+					"notNull": false,
+					"length": 4,
+					"precision": 19,
+					"generator": null,
+					"isRelated": false,
+					"defaultValue": "0"
+				},
+				{
+					"fieldName": "date",
+					"type": "date",
+					"hibernateType": "date",
+					"fullyQualifiedType": "date",
+					"columnName": "DATE",
+					"isPrimaryKey": false,
+					"notNull": true,
+					"length": 1,
+					"precision": 19,
+					"generator": null,
+					"isRelated": false,
+					"defaultValue": null
+				},
+				{
+					"fieldName": "amount",
+					"type": "integer",
+					"hibernateType": "integer",
+					"fullyQualifiedType": "integer",
+					"columnName": "AMOUNT",
+					"isPrimaryKey": false,
+					"notNull": false,
+					"length": 10,
+					"precision": 19,
+					"generator": null,
+					"isRelated": false,
+					"defaultValue": "0"
+				}
+			],
+			"primaryKeys": [
+				"orderId"
+			],
+			"entityName": "Orders",
+			"fullyQualifiedName": "com.wavemakervcs1.testsampledb738.hrdb23.Orders",
+			"tableType": "TABLE"
+		},
+		"bindCount": 2
+	},
+	"Hrdb23InnerJoinQuery": {
+		"name": "Hrdb23InnerJoinQuery",
+		"type": "string",
+		"isList": false,
+		"owner": "App",
+		"dataSet": {
+			"dataValue": ""
+		},
+		"dataBinding": [
+			{
+				"name": "dataBinding",
+				"type": "object",
+				"fields": []
+			}
+		],
+		"saveInPhonegap": false,
+		"firstRow": 0,
+		"maxResults": 20,
+		"designMaxResults": 10,
+		"service": "hrdb23",
+		"operation": "InnerJoinQuery",
+		"startUpdate": false,
+		"autoUpdate": true,
+		"inFlightBehavior": "executeLast",
+		"transformationRequired": false,
+		"serviceType": "DataService",
+		"category": "wm.ServiceVariable",
+		"isDefault": true,
+		"_id": "wm-Hrdb23InnerJoinQuery-wm.ServiceVariable-1439358862442"
+	},
+	"Hrdb23LeftOuterJoinQuery": {
+		"name": "Hrdb23LeftOuterJoinQuery",
+		"type": "string",
+		"isList": false,
+		"owner": "App",
+		"dataSet": {
+			"dataValue": ""
+		},
+		"dataBinding": [
+			{
+				"name": "dataBinding",
+				"type": "object",
+				"fields": []
+			}
+		],
+		"saveInPhonegap": false,
+		"firstRow": 0,
+		"maxResults": 20,
+		"designMaxResults": 10,
+		"service": "hrdb23",
+		"operation": "LeftOuterJoinQuery",
+		"startUpdate": false,
+		"autoUpdate": true,
+		"inFlightBehavior": "executeLast",
+		"transformationRequired": false,
+		"serviceType": "DataService",
+		"category": "wm.ServiceVariable",
+		"isDefault": true,
+		"_id": "wm-Hrdb23LeftOuterJoinQuery-wm.ServiceVariable-1439359116435"
+	},
+	"Hrdb23RightOuterJoinquery": {
+		"name": "Hrdb23RightOuterJoinquery",
+		"type": "string",
+		"isList": false,
+		"owner": "App",
+		"dataSet": {
+			"dataValue": ""
+		},
+		"dataBinding": [
+			{
+				"name": "dataBinding",
+				"type": "object",
+				"fields": []
+			}
+		],
+		"saveInPhonegap": false,
+		"firstRow": 0,
+		"maxResults": 20,
+		"designMaxResults": 10,
+		"service": "hrdb23",
+		"operation": "RightOuterJoinquery",
+		"startUpdate": false,
+		"autoUpdate": true,
+		"inFlightBehavior": "executeLast",
+		"transformationRequired": false,
+		"serviceType": "DataService",
+		"category": "wm.ServiceVariable",
+		"isDefault": true,
+		"_id": "wm-Hrdb23RightOuterJoinquery-wm.ServiceVariable-1439359188230"
+	},
+	"Hrdb23FullOuterJoinQuery": {
+		"name": "Hrdb23FullOuterJoinQuery",
+		"type": "hrdb23FullOuterJoinQueryrtnType",
+		"isList": false,
+		"owner": "App",
+		"dataSet": {
+			"dataValue": ""
+		},
+		"dataBinding": [
+			{
+				"name": "dataBinding",
+				"type": "object",
+				"fields": []
+			}
+		],
+		"saveInPhonegap": false,
+		"firstRow": 0,
+		"maxResults": 20,
+		"designMaxResults": 10,
+		"service": "hrdb23",
+		"operation": "FullOuterJoinQuery",
+		"operationType": "nativequery",
+		"startUpdate": true,
+		"autoUpdate": true,
+		"inFlightBehavior": "executeLast",
+		"transformationRequired": false,
+		"serviceType": "DataService",
+		"category": "wm.ServiceVariable",
+		"isDefault": true,
+		"_id": "wm-Hrdb23FullOuterJoinQuery-wm.ServiceVariable-1439359275864"
+	},
+	"Hrdb23InsertQuery": {
+		"name": "Hrdb23InsertQuery",
+		"type": "string",
+		"isList": false,
+		"owner": "App",
+		"dataSet": {
+			"dataValue": ""
+		},
+		"dataBinding": [
+			{
+				"name": "dataBinding",
+				"type": "object",
+				"fields": []
+			}
+		],
+		"saveInPhonegap": false,
+		"firstRow": 0,
+		"maxResults": 20,
+		"designMaxResults": 10,
+		"service": "hrdb23",
+		"operation": "InsertQuery",
+		"startUpdate": false,
+		"autoUpdate": true,
+		"inFlightBehavior": "executeLast",
+		"transformationRequired": false,
+		"serviceType": "DataService",
+		"category": "wm.ServiceVariable",
+		"isDefault": true,
+		"_id": "wm-Hrdb23InsertQuery-wm.ServiceVariable-1439360149366"
+	},
+	"Hrdb23GetViewData": {
+		"name": "Hrdb23GetViewData",
+		"type": "string",
+		"isList": false,
+		"owner": "App",
+		"dataSet": {
+			"dataValue": ""
+		},
+		"dataBinding": [
+			{
+				"name": "dataBinding",
+				"type": "object",
+				"fields": []
+			}
+		],
+		"saveInPhonegap": false,
+		"firstRow": 0,
+		"maxResults": 20,
+		"designMaxResults": 10,
+		"service": "hrdb23",
+		"operation": "getViewData",
+		"startUpdate": false,
+		"autoUpdate": true,
+		"inFlightBehavior": "executeLast",
+		"transformationRequired": false,
+		"serviceType": "DataService",
+		"category": "wm.ServiceVariable",
+		"isDefault": true,
+		"_id": "wm-Hrdb23GetViewData-wm.ServiceVariable-1439360456380"
+	},
+	"Hrdb23EVcustomerorderdetailsData": {
+		"name": "Hrdb23EVcustomerorderdetailsData",
+		"type": "EVcustomerorderdetails",
+		"isList": true,
+		"owner": "App",
+		"dataSet": {
+			"dataValue": ""
+		},
+		"dataBinding": [
+			{
+				"name": "dataBinding",
+				"type": "E_VCUSTOMERORDERDETAILS",
+				"fields": [
+					{
+						"name": "orderId",
+						"type": "number"
+					},
+					{
+						"name": "custName",
+						"type": "string"
+					},
+					{
+						"name": "amount",
+						"type": "number"
+					},
+					{
+						"name": "date",
+						"type": "date"
+					}
+				]
+			}
+		],
+		"saveInPhonegap": false,
+		"firstRow": 0,
+		"maxResults": 20,
+		"designMaxResults": 10,
+		"operation": "read",
+		"startUpdate": true,
+		"autoUpdate": true,
+		"inFlightBehavior": "executeLast",
+		"transformationRequired": false,
+		"liveSource": "hrdb23",
+		"ignoreCase": false,
+		"matchMode": "start",
+		"category": "wm.LiveVariable",
+		"isDefault": true,
+		"dbSystem": "HSQLDB",
+		"_id": "wm-Hrdb23EVcustomerorderdetailsData-wm.LiveVariable-1439360496315",
+		"package": "com.wavemakervcs1.testsampledb738.hrdb23.EVcustomerorderdetails",
+		"tableName": "E_VCUSTOMERORDERDETAILS",
+		"tableType": "VIEW",
+		"propertiesMap": {
+			"columns": [
+				{
+					"fieldName": "orderId",
+					"type": "integer",
+					"hibernateType": "integer",
+					"fullyQualifiedType": "integer",
+					"columnName": "ORDER_ID",
+					"isPrimaryKey": false,
+					"notNull": false,
+					"length": 255,
+					"precision": 19,
+					"generator": null,
+					"isRelated": false,
+					"defaultValue": null
+				},
+				{
+					"fieldName": "custName",
+					"type": "string",
+					"hibernateType": "string",
+					"fullyQualifiedType": "string",
+					"columnName": "CUST_NAME",
+					"isPrimaryKey": false,
+					"notNull": false,
+					"length": 30,
+					"precision": 19,
+					"generator": null,
+					"isRelated": false,
+					"defaultValue": null
+				},
+				{
+					"fieldName": "amount",
+					"type": "integer",
+					"hibernateType": "integer",
+					"fullyQualifiedType": "integer",
+					"columnName": "AMOUNT",
+					"isPrimaryKey": false,
+					"notNull": false,
+					"length": 255,
+					"precision": 19,
+					"generator": null,
+					"isRelated": false,
+					"defaultValue": null
+				},
+				{
+					"fieldName": "date",
+					"type": "date",
+					"hibernateType": "date",
+					"fullyQualifiedType": "date",
+					"columnName": "DATE",
+					"isPrimaryKey": false,
+					"notNull": false,
+					"length": 10,
+					"precision": 19,
+					"generator": null,
+					"isRelated": false,
+					"defaultValue": null
+				}
+			],
+			"primaryKeys": [],
+			"entityName": "EVcustomerorderdetails",
+			"fullyQualifiedName": "com.wavemakervcs1.testsampledb738.hrdb23.EVcustomerorderdetails",
+			"tableType": "VIEW"
+		},
+		"bindCount": 2,
+		"filterFields": {}
+	},
+	"ViewData": {
+		"type": "EVcustomerorderdetails",
+		"isList": false,
+		"owner": "App",
+		"dataSet": {
+			"dataValue": ""
+		},
+		"dataBinding": [
+			{
+				"name": "dataBinding",
+				"type": "E_VCUSTOMERORDERDETAILS",
+				"fields": [
+					{
+						"name": "orderId",
+						"type": "number"
+					},
+					{
+						"name": "custName",
+						"type": "string"
+					},
+					{
+						"name": "amount",
+						"type": "number"
+					},
+					{
+						"name": "date",
+						"type": "date"
+					}
+				]
+			}
+		],
+		"saveInPhonegap": false,
+		"firstRow": 0,
+		"maxResults": 20,
+		"designMaxResults": 10,
+		"operation": "read",
+		"startUpdate": true,
+		"autoUpdate": true,
+		"inFlightBehavior": "executeLast",
+		"transformationRequired": false,
+		"liveSource": "hrdb23",
+		"ignoreCase": false,
+		"matchMode": "start",
+		"filterFields": {},
+		"category": "wm.LiveVariable",
+		"_id": "wm-ViewData-wm.LiveVariable-1439363239951",
+		"package": "com.wavemakervcs1.testsampledb738.hrdb23.EVcustomerorderdetails",
+		"tableName": "E_VCUSTOMERORDERDETAILS",
+		"tableType": "VIEW",
+		"propertiesMap": {
+			"columns": [
+				{
+					"fieldName": "orderId",
+					"type": "integer",
+					"hibernateType": "integer",
+					"fullyQualifiedType": "integer",
+					"columnName": "ORDER_ID",
+					"isPrimaryKey": false,
+					"notNull": false,
+					"length": 255,
+					"precision": 19,
+					"generator": null,
+					"isRelated": false,
+					"defaultValue": null
+				},
+				{
+					"fieldName": "custName",
+					"type": "string",
+					"hibernateType": "string",
+					"fullyQualifiedType": "string",
+					"columnName": "CUST_NAME",
+					"isPrimaryKey": false,
+					"notNull": false,
+					"length": 30,
+					"precision": 19,
+					"generator": null,
+					"isRelated": false,
+					"defaultValue": null
+				},
+				{
+					"fieldName": "amount",
+					"type": "integer",
+					"hibernateType": "integer",
+					"fullyQualifiedType": "integer",
+					"columnName": "AMOUNT",
+					"isPrimaryKey": false,
+					"notNull": false,
+					"length": 255,
+					"precision": 19,
+					"generator": null,
+					"isRelated": false,
+					"defaultValue": null
+				},
+				{
+					"fieldName": "date",
+					"type": "date",
+					"hibernateType": "date",
+					"fullyQualifiedType": "date",
+					"columnName": "DATE",
+					"isPrimaryKey": false,
+					"notNull": false,
+					"length": 10,
+					"precision": 19,
+					"generator": null,
+					"isRelated": false,
+					"defaultValue": null
+				}
+			],
+			"primaryKeys": [],
+			"entityName": "EVcustomerorderdetails",
+			"fullyQualifiedName": "com.wavemakervcs1.testsampledb738.hrdb23.EVcustomerorderdetails",
+			"tableType": "VIEW"
+		}
+	}
+}

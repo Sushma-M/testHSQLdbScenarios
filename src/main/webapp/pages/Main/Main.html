@@ -1,0 +1,129 @@
+<wm-page name="page1" data-ng-controller="MainPageController">
+    <wm-content name="content1">
+        <wm-page-content name="page_content1" columnwidth="12">
+            <wm-tabs name="tabs1">
+                <wm-tabpane name="tabpane1">
+                    <wm-tabheader heading="LiveGrids" name="tabheader1"></wm-tabheader>
+                    <wm-tabcontent name="tabcontent1">
+                        <wm-accordion name="accordion1">
+                            <wm-accordionpane name="accordionpane1">
+                                <wm-accordionheader heading="CustomerTable" name="accordionheader1"></wm-accordionheader>
+                                <wm-accordioncontent name="accordioncontent1">
+                                    <wm-livegrid service="hrdb23@Customer" name="CustomerLivegrid1">
+                                        <wm-grid dataset="bind:Variables.Hrdb23CustomerData.dataSet" name="CustomerGrid2" deleterow="true" updaterow="true" insertrow="true" gridfirstrowselect="true" readonlygrid="false">
+                                            <wm-grid-column binding="custId" caption="Cust Id" type="integer" primary-key="true" generator="identity" readonly="true" pcdisplay="true" mobiledisplay="true"></wm-grid-column>
+                                            <wm-grid-column binding="custName" caption="Cust Name" type="string" readonly="false" pcdisplay="true" mobiledisplay="true"></wm-grid-column>
+                                            <wm-grid-column binding="age" caption="Age" type="integer" readonly="false" pcdisplay="true" mobiledisplay="true"></wm-grid-column>
+                                            <wm-grid-column binding="address" caption="Address" type="string" readonly="false" pcdisplay="true" mobiledisplay="true"></wm-grid-column>
+                                            <wm-grid-column binding="salary" caption="Salary" type="integer" readonly="false" pcdisplay="true" mobiledisplay="true"></wm-grid-column>
+                                            <wm-grid-action key="addNewRow" label="New" show="true" class="btn-primary" icon="new" action="addNewRow()" type="button"></wm-grid-action>
+                                        </wm-grid>
+                                        <wm-liveform formtype="inline" dataset="bind:Variables.Hrdb23CustomerData.dataSet" name="CustomerLiveform1" novalidate="false" title="Details">
+                                            <wm-layoutgrid name="layoutgrid1">
+                                                <wm-gridrow name="gridrow1">
+                                                    <wm-gridcolumn name="gridcolumn1" columnwidth="12">
+                                                        <wm-form-field display-name="Cust Id" show="false" primary-key="true" generator="identity" key="custId" type="integer" is-related="false" readonly="true" required="true" default-value="0"></wm-form-field>
+                                                    </wm-gridcolumn>
+                                                </wm-gridrow>
+                                                <wm-gridrow name="gridrow2">
+                                                    <wm-gridcolumn name="gridcolumn2" columnwidth="12">
+                                                        <wm-form-field display-name="Cust Name" show="true" primary-key="false" generator="null" key="custName" type="string" maxvalue="30" is-related="false" readonly="false" required="true"></wm-form-field>
+                                                    </wm-gridcolumn>
+                                                </wm-gridrow>
+                                                <wm-gridrow name="gridrow3">
+                                                    <wm-gridcolumn name="gridcolumn3" columnwidth="12">
+                                                        <wm-form-field display-name="Age" show="true" primary-key="false" generator="null" key="age" type="integer" is-related="false" readonly="false" required="true" default-value="0"></wm-form-field>
+                                                    </wm-gridcolumn>
+                                                </wm-gridrow>
+                                                <wm-gridrow name="gridrow4">
+                                                    <wm-gridcolumn name="gridcolumn4" columnwidth="12">
+                                                        <wm-form-field display-name="Address" show="true" primary-key="false" generator="null" key="address" type="string" maxvalue="30" is-related="false" readonly="false" required="true"></wm-form-field>
+                                                    </wm-gridcolumn>
+                                                </wm-gridrow>
+                                                <wm-gridrow name="gridrow5">
+                                                    <wm-gridcolumn name="gridcolumn5" columnwidth="12">
+                                                        <wm-form-field display-name="Salary" show="true" primary-key="false" generator="null" key="salary" type="integer" is-related="false" readonly="false" required="true" default-value="0"></wm-form-field>
+                                                    </wm-gridcolumn>
+                                                </wm-gridrow>
+                                            </wm-layoutgrid>
+                                            <wm-form-action key="cancel" class="form-cancel btn-secondary" iconclass="glyphicon glyphicon-remove-circle" action="cancel()" display-name="Cancel" show="true" type="button" update-mode="true"></wm-form-action>
+                                            <wm-form-action key="save" class="form-save btn-success" iconclass="glyphicon glyphicon-save" display-name="Save" show="true" type="Submit" update-mode="true"></wm-form-action>
+                                        </wm-liveform>
+                                    </wm-livegrid>
+                                </wm-accordioncontent>
+                            </wm-accordionpane>
+                            <wm-accordionpane name="accordionpane2">
+                                <wm-accordionheader heading="Orders Table" name="accordionheader2"></wm-accordionheader>
+                                <wm-accordioncontent name="accordioncontent2">
+                                    <wm-livegrid service="hrdb23@Orders" name="OrdersLivegrid2">
+                                        <wm-grid dataset="bind:Variables.Hrdb23OrdersData.dataSet" name="OrdersGrid3_1" deleterow="true" updaterow="true" insertrow="true" gridfirstrowselect="true" readonlygrid="false">
+                                            <wm-grid-column binding="orderId" caption="Order Id" type="integer" primary-key="true" generator="identity" readonly="true" pcdisplay="true" mobiledisplay="true"></wm-grid-column>
+                                            <wm-grid-column binding="customerId" caption="Customer Id" type="integer" readonly="false" pcdisplay="true" mobiledisplay="true"></wm-grid-column>
+                                            <wm-grid-column binding="date" caption="Date" type="date" readonly="false" datepattern="yyyy-MM-dd" formatpattern="toDate" pcdisplay="true" mobiledisplay="true"></wm-grid-column>
+                                            <wm-grid-column binding="amount" caption="Amount" type="integer" readonly="false" pcdisplay="true" mobiledisplay="true"></wm-grid-column>
+                                            <wm-grid-action key="addNewRow" label="New" show="true" class="btn-primary" icon="new" action="addNewRow()" type="button"></wm-grid-action>
+                                        </wm-grid>
+                                        <wm-liveform formtype="inline" dataset="bind:Variables.Hrdb23OrdersData.dataSet" name="OrdersLiveform2" novalidate="false" title="Details">
+                                            <wm-layoutgrid name="layoutgrid2">
+                                                <wm-gridrow name="gridrow6">
+                                                    <wm-gridcolumn name="gridcolumn6" columnwidth="12">
+                                                        <wm-form-field display-name="Order Id" show="false" primary-key="true" generator="identity" key="orderId" type="integer" is-related="false" readonly="true" required="true" default-value="0"></wm-form-field>
+                                                    </wm-gridcolumn>
+                                                </wm-gridrow>
+                                                <wm-gridrow name="gridrow7">
+                                                    <wm-gridcolumn name="gridcolumn7" columnwidth="12">
+                                                        <wm-form-field display-name="Customer Id" show="true" primary-key="false" generator="null" key="customerId" type="integer" is-related="false" readonly="false" required="false" default-value="0"></wm-form-field>
+                                                    </wm-gridcolumn>
+                                                </wm-gridrow>
+                                                <wm-gridrow name="gridrow8">
+                                                    <wm-gridcolumn name="gridcolumn8" columnwidth="12">
+                                                        <wm-form-field display-name="Date" show="true" primary-key="false" generator="null" key="date" type="date" is-related="false" readonly="false" required="true"></wm-form-field>
+                                                    </wm-gridcolumn>
+                                                </wm-gridrow>
+                                                <wm-gridrow name="gridrow9">
+                                                    <wm-gridcolumn name="gridcolumn9" columnwidth="12">
+                                                        <wm-form-field display-name="Amount" show="true" primary-key="false" generator="null" key="amount" type="integer" is-related="false" readonly="false" required="false" default-value="0"></wm-form-field>
+                                                    </wm-gridcolumn>
+                                                </wm-gridrow>
+                                            </wm-layoutgrid>
+                                            <wm-form-action key="cancel" class="form-cancel btn-secondary" iconclass="glyphicon glyphicon-remove-circle" action="cancel()" display-name="Cancel" show="true" type="button" update-mode="true"></wm-form-action>
+                                            <wm-form-action key="save" class="form-save btn-success" iconclass="glyphicon glyphicon-save" display-name="Save" show="true" type="Submit" update-mode="true"></wm-form-action>
+                                        </wm-liveform>
+                                    </wm-livegrid>
+                                </wm-accordioncontent>
+                            </wm-accordionpane>
+                        </wm-accordion>
+                    </wm-tabcontent>
+                </wm-tabpane>
+                <wm-tabpane name="tabpane2">
+                    <wm-label fontweight="bold" fontsize="15" caption="Bound to FullJoin QueryVariable" name="label1"></wm-label>
+                    <wm-tabheader heading="Grid With Queryvar" name="tabheader2"></wm-tabheader>
+                    <wm-tabcontent name="tabcontent2">
+                        <wm-grid dataset="bind:Variables.Hrdb23FullOuterJoinQuery.dataSet" name="grid3" readonlygrid="true">
+                            <wm-grid-column binding="CUST_NAME" caption="CUST_NAME" pcdisplay="true" mobiledisplay="true"></wm-grid-column>
+                            <wm-grid-column binding="ORDER_ID" caption="ORDER_ID" pcdisplay="true" mobiledisplay="true"></wm-grid-column>
+                            <wm-grid-column binding="SALARY" caption="SALARY" pcdisplay="true" mobiledisplay="true"></wm-grid-column>
+                            <wm-grid-column binding="AGE" caption="AGE" pcdisplay="true" mobiledisplay="true"></wm-grid-column>
+                            <wm-grid-column binding="CUST_ID" caption="CUST_ID" pcdisplay="true" mobiledisplay="true"></wm-grid-column>
+                            <wm-grid-column binding="ADDRESS" caption="ADDRESS" pcdisplay="true" mobiledisplay="true"></wm-grid-column>
+                            <wm-grid-column binding="DATE" caption="DATE" pcdisplay="true" mobiledisplay="true"></wm-grid-column>
+                            <wm-grid-column binding="CUSTOMER_ID" caption="CUSTOMER_ID" pcdisplay="true" mobiledisplay="true"></wm-grid-column>
+                            <wm-grid-column binding="AMOUNT" caption="AMOUNT" pcdisplay="true" mobiledisplay="true"></wm-grid-column>
+                        </wm-grid>
+                    </wm-tabcontent>
+                </wm-tabpane>
+                <wm-tabpane name="tabpane3">
+                    <wm-tabheader heading="Grid with View" name="tabheader3"></wm-tabheader>
+                    <wm-tabcontent name="tabcontent3">
+                        <wm-grid dataset="bind:Variables.ViewData.dataSet" name="grid4" readonlygrid="true">
+                            <wm-grid-column binding="orderId" caption="Order Id" type="integer" readonly="false" pcdisplay="true" mobiledisplay="true"></wm-grid-column>
+                            <wm-grid-column binding="custName" caption="Cust Name" type="string" readonly="false" pcdisplay="true" mobiledisplay="true"></wm-grid-column>
+                            <wm-grid-column binding="amount" caption="Amount" type="integer" readonly="false" pcdisplay="true" mobiledisplay="true"></wm-grid-column>
+                            <wm-grid-column binding="date" caption="Date" type="date" readonly="false" datepattern="yyyy-MM-dd" formatpattern="toDate" pcdisplay="true" mobiledisplay="true"></wm-grid-column>
+                        </wm-grid>
+                    </wm-tabcontent>
+                </wm-tabpane>
+            </wm-tabs>
+        </wm-page-content>
+    </wm-content>
+</wm-page>

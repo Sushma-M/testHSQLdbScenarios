@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.wavemakervcs1.testsampledb738.hrdb23">
+    <class entity-name="com.wavemakervcs1.testsampledb738.hrdb23.Customer" table="CUSTOMER" name="Customer" schema="PUBLIC">
+        <id name="custId" type="integer">
+            <column name="CUST_ID" length="4" not-null="true" precision="19" default="'0'"/>
+            <generator class="identity"/>
+        </id>
+        <property name="custName" type="string">
+            <column name="CUST_NAME" length="30" not-null="true" precision="19"/>
+        </property>
+        <property name="age" type="integer">
+            <column name="AGE" length="3" not-null="true" precision="19" default="'0'"/>
+        </property>
+        <property name="address" type="string">
+            <column name="ADDRESS" length="30" not-null="true" precision="19"/>
+        </property>
+        <property name="salary" type="integer">
+            <column name="SALARY" length="5" not-null="true" precision="19" default="'0'"/>
+        </property>
+    </class>
+    <class entity-name="com.wavemakervcs1.testsampledb738.hrdb23.Orders" table="ORDERS" name="Orders" schema="PUBLIC">
+        <id name="orderId" type="integer">
+            <column name="ORDER_ID" length="4" not-null="true" precision="19" default="'0'"/>
+            <generator class="identity"/>
+        </id>
+        <property name="customerId" type="integer">
+            <column name="CUSTOMER_ID" length="4" not-null="false" precision="19" default="'0'"/>
+        </property>
+        <property name="date" type="date">
+            <column name="DATE" length="1" not-null="true" precision="19"/>
+        </property>
+        <property name="amount" type="integer">
+            <column name="AMOUNT" length="10" not-null="false" precision="19" default="'0'"/>
+        </property>
+    </class>
+</hibernate-mapping>
